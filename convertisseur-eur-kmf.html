@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Convertisseur EUR - KMF</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Icône intégrée (logo bleu €↔KMF) -->
+  <link rel="icon" type="image/png" sizes="192x192" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAVFBMVEUAAAB/f3+ZmZmFhYWZmZmFhYWZmZmFhYWZmZmFhYWZmZmFhYWZmZmFhYWZmZmFhYWZmZmFhYWZmZmFhYWZmZmFhYWZmZmFhYWZmZmFhYW9G24eAAAAIHRSTlMAAAAAAAAAAAAAAAAAAAAAAAAAAAQIDBAUGBwgJCgsMDQ4PEBESExQZtQwAAAIySURBVHja7dxRkoMgEAXQ0DAAgJKXn/v8fQ0Owyu6IuCJyVbYpMM9mTsyphn6QKJNHz8rISx7q3yPJN9t68bty45h2rH5XH2K/nw2xfZzUf38aPxZ4bqZemrPOGgAAAAASUVORK5CYII=">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      padding: 20px;
+      transition: 0.3s;
+    }
+
+    body.dark {
+      background: #121212;
+      color: white;
+    }
+
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 420px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    body.dark .container {
+      background: #1e1e1e;
+    }
+
+    /* Champs de texte plus compacts */
+    input {
+      width: 100%;
+      padding: 6px;       /* réduit le padding */
+      margin: 6px 0;      /* réduit l’espacement */
+      font-size: 14px;    /* réduit la taille de police */
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    body.dark input {
+      background: #2a2a2a;
+      color: white;
+      border: 1px solid #555;
+    }
+
+    /* Boutons un peu plus compacts */
+    button {
+      border: none;
+      border-radius: 5px;
+      font-size: 14px;    /* réduit taille du texte */
+      padding: 8px;       /* réduit padding vertical */
+      cursor: pointer;
+    }
+
+    button.primary { background: #2d89ef; color: white; }
+    button.secondary { background: #6c757d; color: white; }
+    button.danger { background: #c82333; color: white; }
+    button.success { background: #28a745; color: white; }
+
+    button:active { opacity: 0.9; }
+
+    /* Résultat légèrement plus grand mais compact */
+    .result {
+      background: #e8f0fe;
+      padding: 6px;
+      font-size: 14px;
+    }
+
+    body.dark .result {
+      background: #333;
+      color: white;
+    }
+
+    ul { padding-left: 20px; font-size: 14px; }
+
+    .developer {
+      font-size: 12px;
+      text-align: center;
+      color: #555;
+      margin-top: 10px;
+    }
+
+    body.dark .developer {
+      color: #aaa;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>Convertisseur EUR ↔ KMF</h2>
+  <div class="developer">
+    Développé par ABDEREMANE MOILIM Youssef<br>
+    Email : <a href="mailto:abdesisco@gmail.com">abdesisco@gmail.com</a>
+  </div>
+
+  <button class="secondary" onclick="toggleDarkMode()">🌙 Mode sombre</button>
+
+  <label>Taux EUR → KMF</label>
+  <input type="number" id="taux" value="500">
+
+  <label>Montant en EUR</label>
+  <input type="number" id="eur">
+
+  <button class="primary" onclick="eurVersKmf()">Convertir en KMF</button>
+  <input class="result" id="kmf" readonly>
+
+  <hr>
+
+  <label>Montant en KMF</label>
+  <input type="number" id="kmf2">
+
+  <button class="primary" onclick="kmfVersEur()">Convertir en EUR</button>
+  <input class="result" id="eur2" readonly>
+
+  <button class="danger" onclick="resetAll()">🔄 Réinitialiser</button>
+
+  <hr>
+
+  <h3>Historique</h3>
+  <ul id="historyList"></ul>
+
+  <button class="success" onclick="exportTXT()">📄 Exporter en TXT</button>
+  <button class="secondary" onclick="exportPDF()">🖨️ Exporter en PDF</button>
+</div>
+
+<script>
+  const tauxInput = document.getElementById("taux");
+  const eurInput = document.getElementById("eur");
+  const kmf = document.getElementById("kmf");
+  const kmf2 = document.getElementById("kmf2");
+  const eur2 = document.getElementById("eur2");
+  const historyList = document.getElementById("historyList");
+
+  let history = JSON.parse(localStorage.getItem("history")) || [];
+
+  function saveHistory() {
+    localStorage.setItem("history", JSON.stringify(history));
+  }
+
+  function getDateTime() {
+    return new Date().toLocaleString("fr-FR");
+  }
+
+  function addHistory(text) {
+    const entry = `[${getDateTime()}] ${text}`;
+    history.unshift(entry);
+    saveHistory();
+    renderHistory();
+  }
+
+  function renderHistory() {
+    historyList.innerHTML = "";
+    history.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      historyList.appendChild(li);
+    });
+  }
+
+  function eurVersKmf() {
+    const taux = Number(tauxInput.value);
+    const eur = Number(eurInput.value);
+    const res = eur * taux;
+    kmf.value = res.toLocaleString("fr-FR");
+    addHistory(`${eur} EUR → ${res.toLocaleString("fr-FR")} KMF`);
+  }
+
+  function kmfVersEur() {
+    const taux = Number(tauxInput.value);
+    const kmfVal = Number(kmf2.value);
+    const res = kmfVal / taux;
+    eur2.value = res.toFixed(2);
+    addHistory(`${kmfVal.toLocaleString("fr-FR")} KMF → ${res.toFixed(2)} EUR`);
+  }
+
+  function resetAll() {
+    eurInput.value = kmf.value = kmf2.value = eur2.value = "";
+    history = [];
+    saveHistory();
+    renderHistory();
+  }
+
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark");
+  }
+
+  function exportTXT() {
+    const text = history.join("\n");
+    const blob = new Blob([text], { type: "text/plain" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "historique-conversion.txt";
+    a.click();
+  }
+
+  function exportPDF() {
+    window.print();
+  }
+
+  renderHistory();
+</script>
+
+</body>
+</html>
