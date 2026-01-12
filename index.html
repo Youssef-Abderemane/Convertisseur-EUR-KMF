@@ -3,42 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Convertisseur EUR KMF | Taux personnalisable</title>
-
 <meta name="description" content="Convertisseur EUR vers KMF gratuit avec taux personnalisable, historique, mode sombre. Développé par ABDEREMANE MOILIM Youssef.">
 <meta name="keywords" content="convertisseur eur kmf, euro franc comorien, taux eur kmf, convertisseur devises Comores, Franc Comorien to Euro, Comores France, convertir kmf, Fc euro">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://youssef-abderemane.github.io/Convertisseur-EUR-KMF/">
 <meta name="author" content="ABDEREMANE MOILIM Youssef">
-
 <meta name="google-site-verification" content="jAutGg3kcMDkSNCJ3H7OePkRPVNW6F-vR21t0ZtbyI8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<!-- Google AdSense -->
-<script data-ad-client="ca-pub-XXXXXXXXXXXXXX" async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script data-ad-client="ca-pub-XXXXXXXXXXXXXX" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 <style>
-body {
-  margin:0;
-  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-  color:#f1f1f1;
-  padding-bottom:90px; /* Ajouté pour ne pas que la pub recouvre le contenu */
-}
-
-.container{
-  max-width:420px;
-  margin:30px auto;
-  background:#1e1e1e;
-  border-radius:16px;
-  padding:22px;
-  box-shadow:0 20px 40px rgba(0,0,0,0.4);
-}
-
+body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);color:#f1f1f1;padding-bottom:40px;}
+.container{max-width:420px;margin:30px auto;background:#1e1e1e;border-radius:16px;padding:22px;box-shadow:0 20px 40px rgba(0,0,0,.4);}
 h1{text-align:center;font-size:22px;margin-bottom:4px;}
 .subtitle{text-align:center;font-size:12px;color:#aaa;margin-bottom:16px;}
 label{font-size:13px;color:#ccc;}
-input{width:100%;padding:8px;margin-top:4px;margin-bottom:10px;border-radius:6px;border:none;background:#2a2a2a;color:#fff;font-size:14px;}
+input{width:100%;padding:8px;margin:4px 0 10px;border-radius:6px;border:none;background:#2a2a2a;color:#fff;font-size:14px;}
 .result{background:#111;font-weight:bold;}
 button{width:100%;padding:9px;border-radius:8px;border:none;font-size:14px;cursor:pointer;margin-bottom:8px;}
 .btn-main{background:#00bcd4;color:#000;}
@@ -50,26 +31,13 @@ footer{text-align:center;font-size:11px;color:#888;margin-top:16px;}
 a{color:#00bcd4;text-decoration:none;}
 section.seo{margin-top:20px;font-size:13px;color:#bbb;}
 section.seo h2{color:#fff;font-size:15px;}
-.ads-bottom{
-  position:fixed;
-  bottom:0;
-  left:0;
-  width:100%;
-  background:#1e1e1e;
-  text-align:center;
-  padding:4px 0;
-  box-shadow:0 -4px 6px rgba(0,0,0,0.3);
-  z-index:999;
-}
+.ad-container{margin:12px auto;text-align:center;max-width:320px;}
 </style>
 </head>
 <body>
-<div class="container">
+<main class="container">
 <h1>Convertisseur EUR ↔ KMF</h1>
-<div class="subtitle">
-Développé par ABDEREMANE MOILIM Youssef<br>
-<a href="mailto:abdesisco@gmail.com">abdesisco@gmail.com</a>
-</div>
+<div class="subtitle">Développé par ABDEREMANE MOILIM Youssef<br><a href="mailto:abdesisco@gmail.com">abdesisco@gmail.com</a></div>
 
 <label>Taux EUR → KMF</label>
 <input type="number" id="taux" value="500">
@@ -87,72 +55,41 @@ Développé par ABDEREMANE MOILIM Youssef<br>
 <input class="result" id="eur2" readonly>
 
 <button class="btn-danger" onclick="resetAll()">Réinitialiser</button>
-<button class="btn-alt" onclick="exportHistoryText()">Exporter historique (texte)</button>
-<button class="btn-alt" onclick="exportHistoryPDF()">Exporter historique (PDF)</button>
+<button class="btn-alt" onclick="exportHistoryText()">Exporter TXT</button>
+<button class="btn-alt" onclick="exportHistoryPDF()">Exporter PDF</button>
 
 <hr>
-
 <h3>Historique</h3>
 <ul id="historyList"></ul>
 
 <section class="seo">
 <h2>Convertisseur EUR vers KMF / EUR to KMF Converter</h2>
-<p>Ce convertisseur EUR KMF gratuit permet de convertir facilement l’euro (€) en franc comorien (KMF) avec un taux personnalisable. Il propose un historique des conversions et un mode sombre pour un confort optimal.</p>
-<p>This free EUR to KMF converter allows you to easily convert Euros (€) into Comorian Francs (KMF) with a customizable rate. It also provides conversion history and dark mode for better usability.</p>
-<p>Idéal pour les utilisateurs en France et aux Comores, ainsi que pour toute personne souhaitant suivre le taux EUR/KMF.<br>Ideal for users in France and Comoros, and anyone who wants to track EUR/KMF rates.</p>
+<p>Convertissez facilement l’euro (€) en franc comorien (KMF) avec un taux personnalisable. Historique, mode sombre et export PDF/TXT inclus.</p>
+<p>Convert easily Euros (€) into Comorian Francs (KMF) with a customizable rate. History, dark mode and PDF/TXT export included.</p>
+<p>Idéal pour utilisateurs en France et Comores. Ideal for users in France and Comoros.</p>
 </section>
 
-</div>
-
-<div class="ads-bottom">
+<div class="ad-container">
 <ins class="adsbygoogle" style="display:block" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
 </div>
+</main>
 
-<footer>
-© 2026 – Convertisseur EUR KMF | Tous droits réservés
-</footer>
+<footer>© 2026 – Convertisseur EUR KMF | Tous droits réservés</footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
-const tauxInput = document.getElementById("taux");
-const eurInput = document.getElementById("eur");
-const kmf = document.getElementById("kmf");
-const kmf2 = document.getElementById("kmf2");
-const eur2 = document.getElementById("eur2");
-const historyList = document.getElementById("historyList");
-
-let history = JSON.parse(localStorage.getItem("history")) || [];
-
-function saveHistory(){ localStorage.setItem("history", JSON.stringify(history)); }
-function now(){ return new Date().toLocaleString("fr-FR"); }
-function addHistory(text){ history.unshift(`[${now()}] ${text}`); saveHistory(); renderHistory(); }
-function renderHistory(){ historyList.innerHTML=""; history.forEach(h=>{ const li=document.createElement("li"); li.textContent=h; historyList.appendChild(li); }); }
-
-function eurVersKmf(){ const res=eurInput.value * tauxInput.value; kmf.value=res.toLocaleString("fr-FR"); addHistory(`${eurInput.value} EUR → ${kmf.value} KMF`);}
-function kmfVersEur(){ const res=kmf2.value / tauxInput.value; eur2.value=res.toFixed(2); addHistory(`${kmf2.value} KMF → ${eur2.value} EUR`);}
-function resetAll(){ eurInput.value=kmf.value=kmf2.value=eur2.value=""; history=[]; saveHistory(); renderHistory(); }
-
-function exportHistoryText(){
-  const text = history.join("\n");
-  const blob = new Blob([text], {type:"text/plain"});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href=url;
-  a.download="historique_convertisseur.txt";
-  a.click();
-  URL.revokeObjectURL(url);
-}
-
-function exportHistoryPDF(){
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF();
-  history.forEach((line,index)=>{
-    doc.text(line,10,10 + index*8);
-  });
-  doc.save("historique_convertisseur.pdf");
-}
-
+const tauxInput=document.getElementById("taux"),eurInput=document.getElementById("eur"),kmf=document.getElementById("kmf"),kmf2=document.getElementById("kmf2"),eur2=document.getElementById("eur2"),historyList=document.getElementById("historyList");
+let history=JSON.parse(localStorage.getItem("history"))||[];
+function saveHistory(){localStorage.setItem("history",JSON.stringify(history));}
+function now(){return new Date().toLocaleString("fr-FR");}
+function addHistory(t){history.unshift(`[${now()}] ${t}`);saveHistory();renderHistory();}
+function renderHistory(){historyList.innerHTML="";history.forEach(h=>{const li=document.createElement("li");li.textContent=h;historyList.appendChild(li);});}
+function eurVersKmf(){const r=eurInput.value*tauxInput.value;kmf.value=r.toLocaleString("fr-FR");addHistory(`${eurInput.value} EUR → ${kmf.value} KMF`);}
+function kmfVersEur(){const r=kmf2.value/tauxInput.value;eur2.value=r.toFixed(2);addHistory(`${kmf2.value} KMF → ${eur2.value} EUR`);}
+function resetAll(){eurInput.value=kmf.value=kmf2.value=eur2.value="";history=[];saveHistory();renderHistory();}
+function exportHistoryText(){const t=history.join("\n"),b=new Blob([t],{type:"text/plain"}),u=URL.createObjectURL(b),a=document.createElement("a");a.href=u;a.download="historique_convertisseur.txt";a.click();URL.revokeObjectURL(u);}
+function exportHistoryPDF(){const{jsPDF:e}=window.jspdf,d=new e();history.forEach((l,i)=>{d.text(l,10,10+8*i);});d.save("historique_convertisseur.pdf");}
 renderHistory();
 </script>
 </body>
