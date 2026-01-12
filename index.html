@@ -2,108 +2,120 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Convertisseur EUR - KMF</title>
+  <title>Convertisseur EUR KMF gratuit | Taux personnalisable</title>
+
+  <!-- SEO -->
+  <meta name="description"
+        content="Convertisseur EUR vers KMF gratuit avec taux personnalisable, historique, mode sombre. Développé par ABDEREMANE MOILIM Youssef.">
+  <meta name="keywords"
+        content="convertisseur eur kmf, euro franc comorien, taux eur kmf, devises comores">
+  <meta name="author" content="ABDEREMANE MOILIM Youssef">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Icône intégrée (logo bleu €↔KMF) -->
-  <link rel="icon" type="image/png" sizes="192x192" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAVFBMVEUAAAB/f3+ZmZmFhYWZmZmFhYWZmZmFhYWZmZmFhYWZmZmFhYWZmZmFhYWZmZmFhYWZmZmFhYWZmZmFhYWZmZmFhYWZmZmFhYWZmZmFhYW9G24eAAAAIHRSTlMAAAAAAAAAAAAAAAAAAAAAAAAAAAQIDBAUGBwgJCgsMDQ4PEBESExQZtQwAAAIySURBVHja7dxRkoMgEAXQ0DAAgJKXn/v8fQ0Owyu6IuCJyVbYpMM9mTsyphn6QKJNHz8rISx7q3yPJN9t68bty45h2rH5XH2K/nw2xfZzUf38aPxZ4bqZemrPOGgAAAAASUVORK5CYII=">
+  <!-- Icône -->
+  <link rel="icon" type="image/png" sizes="192x192"
+        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAVFBMVEUAAAB/f3+ZmZmFhYWZmZmFhYWZmZmFhYWZmZmFhYWZmZmFhYWZmZmFhYWZmZmFhYWZmZmFhYWZmZmFhYWZmZmFhYWZmZmFhYW9G24eAAAAIHRSTlMAAAAAAAAAAAAAAAAAAAAAAAAAAAQIDBAUGBwgJCgsMDQ4PEBESExQZtQwAAAIySURBVHja7dxRkoMgEAXQ0DAAgJKXn/v8fQ0Owyu6IuCJyVbYpMM9mTsyphn6QKJNHz8rISx7q3yPJN9t68bty45h2rH5XH2K/nw2xfZzUf38aPxZ4bqZemrPOGgAAAAASUVORK5CYII=">
 
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f2f2f2;
-      padding: 20px;
-      transition: 0.3s;
-    }
-
-    body.dark {
-      background: #121212;
-      color: white;
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #f1f1f1;
     }
 
     .container {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
       max-width: 420px;
-      margin: auto;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      transition: 0.3s;
-    }
-
-    body.dark .container {
+      margin: 30px auto;
       background: #1e1e1e;
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
     }
 
-    /* Champs de texte plus compacts */
+    h1 {
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 12px;
+      color: #aaa;
+      margin-bottom: 16px;
+    }
+
+    label {
+      font-size: 13px;
+      color: #ccc;
+    }
+
     input {
       width: 100%;
-      padding: 6px;       /* réduit le padding */
-      margin: 6px 0;      /* réduit l’espacement */
-      font-size: 14px;    /* réduit la taille de police */
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-
-    body.dark input {
-      background: #2a2a2a;
-      color: white;
-      border: 1px solid #555;
-    }
-
-    /* Boutons un peu plus compacts */
-    button {
+      padding: 8px;
+      margin-top: 4px;
+      margin-bottom: 10px;
+      border-radius: 6px;
       border: none;
-      border-radius: 5px;
-      font-size: 14px;    /* réduit taille du texte */
-      padding: 8px;       /* réduit padding vertical */
-      cursor: pointer;
-    }
-
-    button.primary { background: #2d89ef; color: white; }
-    button.secondary { background: #6c757d; color: white; }
-    button.danger { background: #c82333; color: white; }
-    button.success { background: #28a745; color: white; }
-
-    button:active { opacity: 0.9; }
-
-    /* Résultat légèrement plus grand mais compact */
-    .result {
-      background: #e8f0fe;
-      padding: 6px;
+      background: #2a2a2a;
+      color: #fff;
       font-size: 14px;
     }
 
-    body.dark .result {
+    .result {
+      background: #111;
+      font-weight: bold;
+    }
+
+    button {
+      width: 100%;
+      padding: 9px;
+      border-radius: 8px;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+      margin-bottom: 8px;
+    }
+
+    .btn-main { background: #00bcd4; color: #000; }
+    .btn-alt { background: #3a3a3a; color: #fff; }
+    .btn-danger { background: #b71c1c; color: #fff; }
+
+    hr {
+      border: none;
+      height: 1px;
       background: #333;
-      color: white;
+      margin: 16px 0;
     }
 
-    ul { padding-left: 20px; font-size: 14px; }
+    ul {
+      font-size: 13px;
+      padding-left: 18px;
+      max-height: 150px;
+      overflow-y: auto;
+    }
 
-    .developer {
-      font-size: 12px;
+    footer {
       text-align: center;
-      color: #555;
-      margin-top: 10px;
+      font-size: 11px;
+      color: #888;
+      margin-top: 16px;
     }
 
-    body.dark .developer {
-      color: #aaa;
-    }
+    a { color: #00bcd4; text-decoration: none; }
   </style>
 </head>
 
 <body>
 
 <div class="container">
-  <h2>Convertisseur EUR ↔ KMF</h2>
-  <div class="developer">
+  <h1>Convertisseur EUR ↔ KMF</h1>
+  <div class="subtitle">
     Développé par ABDEREMANE MOILIM Youssef<br>
-    Email : <a href="mailto:abdesisco@gmail.com">abdesisco@gmail.com</a>
+    <a href="mailto:abdesisco@gmail.com">abdesisco@gmail.com</a>
   </div>
-
-  <button class="secondary" onclick="toggleDarkMode()">🌙 Mode sombre</button>
 
   <label>Taux EUR → KMF</label>
   <input type="number" id="taux" value="500">
@@ -111,7 +123,7 @@
   <label>Montant en EUR</label>
   <input type="number" id="eur">
 
-  <button class="primary" onclick="eurVersKmf()">Convertir en KMF</button>
+  <button class="btn-main" onclick="eurVersKmf()">Convertir en KMF</button>
   <input class="result" id="kmf" readonly>
 
   <hr>
@@ -119,19 +131,20 @@
   <label>Montant en KMF</label>
   <input type="number" id="kmf2">
 
-  <button class="primary" onclick="kmfVersEur()">Convertir en EUR</button>
+  <button class="btn-main" onclick="kmfVersEur()">Convertir en EUR</button>
   <input class="result" id="eur2" readonly>
 
-  <button class="danger" onclick="resetAll()">🔄 Réinitialiser</button>
+  <button class="btn-danger" onclick="resetAll()">Réinitialiser</button>
 
   <hr>
 
   <h3>Historique</h3>
   <ul id="historyList"></ul>
-
-  <button class="success" onclick="exportTXT()">📄 Exporter en TXT</button>
-  <button class="secondary" onclick="exportPDF()">🖨️ Exporter en PDF</button>
 </div>
+
+<footer>
+  © 2026 – Convertisseur EUR KMF | Tous droits réservés
+</footer>
 
 <script>
   const tauxInput = document.getElementById("taux");
@@ -147,40 +160,35 @@
     localStorage.setItem("history", JSON.stringify(history));
   }
 
-  function getDateTime() {
+  function now() {
     return new Date().toLocaleString("fr-FR");
   }
 
   function addHistory(text) {
-    const entry = `[${getDateTime()}] ${text}`;
-    history.unshift(entry);
+    history.unshift(`[${now()}] ${text}`);
     saveHistory();
     renderHistory();
   }
 
   function renderHistory() {
     historyList.innerHTML = "";
-    history.forEach(item => {
+    history.forEach(h => {
       const li = document.createElement("li");
-      li.textContent = item;
+      li.textContent = h;
       historyList.appendChild(li);
     });
   }
 
   function eurVersKmf() {
-    const taux = Number(tauxInput.value);
-    const eur = Number(eurInput.value);
-    const res = eur * taux;
+    const res = eurInput.value * tauxInput.value;
     kmf.value = res.toLocaleString("fr-FR");
-    addHistory(`${eur} EUR → ${res.toLocaleString("fr-FR")} KMF`);
+    addHistory(`${eurInput.value} EUR → ${kmf.value} KMF`);
   }
 
   function kmfVersEur() {
-    const taux = Number(tauxInput.value);
-    const kmfVal = Number(kmf2.value);
-    const res = kmfVal / taux;
+    const res = kmf2.value / tauxInput.value;
     eur2.value = res.toFixed(2);
-    addHistory(`${kmfVal.toLocaleString("fr-FR")} KMF → ${res.toFixed(2)} EUR`);
+    addHistory(`${kmf2.value} KMF → ${eur2.value} EUR`);
   }
 
   function resetAll() {
@@ -188,23 +196,6 @@
     history = [];
     saveHistory();
     renderHistory();
-  }
-
-  function toggleDarkMode() {
-    document.body.classList.toggle("dark");
-  }
-
-  function exportTXT() {
-    const text = history.join("\n");
-    const blob = new Blob([text], { type: "text/plain" });
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = "historique-conversion.txt";
-    a.click();
-  }
-
-  function exportPDF() {
-    window.print();
   }
 
   renderHistory();
